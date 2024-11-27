@@ -58,15 +58,6 @@
 
             label = "SPACE_RET";
         };
-
-        tab_a: tab_a {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAB_A";
-            #binding-cells = <0>;
-            bindings = <&kp A>, <&kp TAB>;
-
-            tapping-term-ms = <100>;
-        };
     };
 };
 
@@ -83,6 +74,11 @@
             bindings = <&to 3>;
             key-positions = <36 41>;
         };
+
+        tab {
+            bindings = <&kp TAB>;
+            key-positions = <13 14>;
+        };
     };
 
     keymap {
@@ -91,7 +87,7 @@
         default_layer {
             bindings = <
 &none  &mt ESCAPE Q        &kp W  &kp F     &kp P  &kp B             &kp J       &kp L  &kp U      &kp Y    &mt DELETE SEMI  &none
-&none  &tab_a              &kp R  &kp S     &kp T  &kp G             &kp M       &kp N  &kp E      &kp I    &kp O            &none
+&none  &kp A               &kp R  &kp S     &kp T  &kp G             &kp M       &kp N  &kp E      &kp I    &kp O            &none
 &none  &mt LEFT_CONTROL Z  &kp X  &kp C     &kp D  &kp V             &kp K       &kp H  &kp COMMA  &kp DOT  &kp FSLH         &none
                                   &kp LGUI  &mo 1  &mt LSHFT CAPS    &space_ret  &mo 2  &sk LALT
             >;
@@ -126,9 +122,9 @@
 
         mouse_layer {
             bindings = <
-&none  &none           &kp LG(LBKT)    &mmv MOVE_UP    &kp LG(RBKT)     &none     &none   &msc MOVE_UP      &none      &none      &none    &none
-&none  &kp LEFT_SHIFT  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none     &none   &mkp LCLK         &mkp RCLK  &mkp MCLK  &none    &none
-&none  &none           &none           &none           &none            &none     &none   &msc MOVE_DOWN    &none      &none      &kp LGUI &none
+&none  &none           &kp LG(LBKT)    &mmv MOVE_UP    &kp LG(RBKT)     &none     &none   &msc SCROLL_UP    &none      &none      &none     &none
+&none  &kp LEFT_SHIFT  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none     &none   &mkp LCLK         &mkp RCLK  &mkp MCLK  &none     &none
+&none  &none           &none           &none           &none            &none     &none   &msc SCROLL_DOWN  &none      &none      &kp LGUI  &none
                                        &trans          &none            &trans    &trans  &none
             >;
         };
