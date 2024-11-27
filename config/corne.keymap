@@ -75,7 +75,7 @@
             key-positions = <36 41>;
         };
 
-        tab {
+        combo_tab {
             bindings = <&kp TAB>;
             key-positions = <13 14>;
         };
