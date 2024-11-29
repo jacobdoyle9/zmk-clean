@@ -26,18 +26,24 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp LGUI &kp LCTRL>,
-                <&macro_tap &kp LEFT>,
-                <&macro_release &kp LGUI &kp LCTRL>;
+                <&macro_press>,
+                <&kp LGUI &kp LCTRL>,
+                <&macro_tap>,
+                <&kp LEFT>,
+                <&macro_release>,
+                <&kp LGUI &kp LCTRL>;
         };
 
         screen_right: screen_right {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp LGUI &kp LCTRL>,
-                <&macro_tap &kp RIGHT>,
-                <&macro_release &kp LGUI &kp LCTRL>;
+                <&macro_press>,
+                <&kp LGUI &kp LCTRL>,
+                <&macro_tap>,
+                <&kp RIGHT>,
+                <&macro_release>,
+                <&kp LGUI &kp LCTRL>;
         };
     };
 };
@@ -77,10 +83,10 @@
 
         raise_layer {
             bindings = <
-&kp LC(LA(T))  &kp EXCL  &kp AT  &none         &kp PRCNT      &none      &kp HASH   &kp LBKT  &kp RBKT  &kp PLUS   &kp STAR       &trans
-&none          &kp AMPS  &none   &screen_left  &screen_right  &none      &kp EQUAL  &kp LPAR  &kp RPAR  &kp MINUS  &kp PIPE       &kp GRAVE
-&kp LSHFT      &none     &none   &kp CARET     &kp DLLR       &none      &kp CARET  &kp LBRC  &kp RBRC  &kp UNDER  &kp BACKSLASH  &kp TILDE
-                                 &kp LGUI      &trans         &kp DEL    &trans     &trans    &kp RALT
+&kp LC(LA(T))  &kp EXCL    &kp AT  &none         &kp PRCNT      &none      &kp HASH   &kp LBKT  &kp RBKT  &kp PLUS   &kp STAR       &trans
+&none          &kp AMPS    &none   &screen_left  &screen_right  &none      &kp EQUAL  &kp LPAR  &kp RPAR  &kp MINUS  &kp PIPE       &kp GRAVE
+&none          &kp LSHIFT  &none   &kp CARET     &kp DLLR       &none      &kp CARET  &kp LBRC  &kp RBRC  &kp UNDER  &kp BACKSLASH  &kp TILDE
+                                   &kp LGUI      &trans         &kp DEL    &trans     &trans    &kp RALT
             >;
         };
 
@@ -95,10 +101,10 @@
 
         mouse_layer {
             bindings = <
-&none  &none           &kp LG(LBKT)    &mmv MOVE_UP    &kp LG(RBKT)     &none     &none   &msc MOVE_UP      &none      &none      &none    &none
-&none  &kp LEFT_SHIFT  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none     &none   &mkp LCLK         &mkp RCLK  &mkp MCLK  &none    &none
-&none  &none           &none           &none           &none            &none     &none   &msc MOVE_DOWN    &none      &none      &kp LGUI &none
-                                       &trans          &none            &trans    &trans  &none
+&none  &none           &kp LG(LBKT)    &mmv MOVE_UP    &kp LG(RBKT)     &none     &msc MOVE_LEFT  &msc MOVE_DOWN  &msc MOVE_RIGHT  &none      &none     &none
+&none  &kp LEFT_SHIFT  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none     &none           &mkp LCLK       &mkp RCLK        &mkp MCLK  &none     &none
+&none  &none           &none           &none           &none            &none     &none           &msc MOVE_UP    &none            &none      &kp LGUI  &none
+                                       &trans          &none            &trans    &trans          &none
             >;
         };
     };
