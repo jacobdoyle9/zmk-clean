@@ -4,10 +4,13 @@
  * SPDX-License-Identifier: MIT
  */
 
+#include <dt-bindings/zmk/mouse.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/mouse.h>
+#include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/pointing.h>
 
 / {
     conditional_layers {
@@ -104,28 +107,28 @@
 
         raise_layer {
             bindings = <
-&none  &kp EXCL        &kp AT     &none         &kp PRCNT      &none        &kp CARET  &kp LBKT  &kp RBKT  &kp PLUS   &kp STAR       &none
-&none  &kp AMPS        &kp TILDE  &screen_left  &screen_right  &kp GRAVE    &kp EQUAL  &kp LPAR  &kp RPAR  &kp MINUS  &kp PIPE       &none
-&none  &kp LEFT_SHIFT  &none      &kp CARET     &kp DLLR       &none        &kp HASH   &kp LBRC  &kp RBRC  &kp UNDER  &kp BACKSLASH  &none
-                                  &kp LGUI      &trans         &kp DEL      &trans     &trans    &kp RALT
+&kp LC(LA(T))  &kp EXCL    &kp AT  &none         &kp PRCNT      &none      &kp HASH   &kp LBKT  &kp RBKT  &kp PLUS   &kp STAR       &trans
+&none          &kp AMPS    &none   &screen_left  &screen_right  &none      &kp EQUAL  &kp LPAR  &kp RPAR  &kp MINUS  &kp PIPE       &kp GRAVE
+&none          &kp LSHIFT  &none   &kp CARET     &kp DLLR       &none      &kp CARET  &kp LBRC  &kp RBRC  &kp UNDER  &kp BACKSLASH  &kp TILDE
+                                   &kp LGUI      &trans         &kp DEL    &trans     &trans    &kp RALT
             >;
         };
 
         game_layer {
             bindings = <
-&kp F3       &kp ESC    &kp Q    &kp W   &kp R   &kp E        &kp J   &kp L  &kp U      &kp Y    &kp SEMI  &kp BSPC
-&mt TAB DOT  &kp LSHFT  &kp A    &kp S   &kp D   &kp F        &kp M   &kp N  &kp E      &kp I    &kp O     &kp SQT
-&kp LALT     &kp LCTRL  &mt B G  &kp P   &kp M   &kp N        &kp K   &kp H  &kp COMMA  &kp DOT  &kp FSLH  &to 0
-                                 &kp N2  &kp N1  &kp SPACE    &trans  &to 0  &kp RALT
+&kp F3       &kp ESC    &kp Q    &kp W   &kp R   &kp E        &kp J      &kp L  &kp U      &kp Y    &kp SEMI  &kp BSPC
+&mt TAB DOT  &kp LSHFT  &kp A    &kp S   &kp D   &kp F        &kp C      &kp N  &kp T      &kp I    &kp O     &kp SQT
+&kp LALT     &kp LCTRL  &mt B G  &kp P   &kp M   &kp N        &kp K      &kp H  &kp COMMA  &kp DOT  &kp FSLH  &to 0
+                                 &kp N2  &kp N1  &kp SPACE    &kp RSHFT  &to 0  &kp RALT
             >;
         };
 
         mouse_layer {
             bindings = <
-&none  &none           &kp LG(LBKT)    &mmv MOVE_UP    &kp LG(RBKT)     &none     &none   &msc MOVE_DOWN  &none      &none      &none     &none
-&none  &kp LEFT_SHIFT  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none     &none   &mkp LCLK       &mkp RCLK  &mkp MCLK  &none     &none
-&none  &none           &none           &none           &none            &none     &none   &msc MOVE_UP    &none      &none      &kp LGUI  &none
-                                       &trans          &none            &trans    &trans  &none           &none
+&none  &none           &kp LG(LBKT)    &mmv MOVE_UP    &kp LG(RBKT)     &none     &msc MOVE_LEFT  &msc MOVE_DOWN  &msc MOVE_RIGHT  &none      &none     &none
+&none  &kp LEFT_SHIFT  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none     &none           &mkp LCLK       &mkp RCLK        &mkp MCLK  &none     &none
+&none  &none           &none           &none           &none            &none     &none           &msc MOVE_UP    &none            &none      &kp LGUI  &none
+                                       &trans          &none            &trans    &trans          &none
             >;
         };
     };
