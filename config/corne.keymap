@@ -53,34 +53,55 @@
 
 / {
     behaviors {
-        sret: space_ret {
+        space_ret: space_ret {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp SPACE>, <&kp RET>;
+
+            label = "SPACE_RET";
         };
     };
 };
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        apos {
+            bindings = <&kp APOSTROPHE>;
+            key-positions = <21 22>;
+        };
+
+        game {
+            bindings = <&to 3>;
+            key-positions = <36 41>;
+        };
+
+        combo_tab {
+            bindings = <&kp TAB>;
+            key-positions = <13 14>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
-&mt LA(F4) ESC  &kp Q  &kp W  &kp F     &kp P  &kp B             &kp J  &kp L  &kp U      &kp Y    &kp SEMI  &mt LC(LA(DEL)) DEL
-&kp TAB         &kp A  &kp R  &kp S     &kp T  &kp G             &kp M  &kp N  &kp E      &kp I    &kp O     &kp SQT
-&sk LCTRL       &kp Z  &kp X  &kp C     &kp D  &kp V             &kp K  &kp H  &kp COMMA  &kp DOT  &kp FSLH  &to 3
-                              &kp LGUI  &mo 1  &mt LSHFT CAPS    &sret  &mo 2  &sk LALT
+&none  &mt ESCAPE Q        &kp W  &kp F     &kp P  &kp B             &kp J       &kp L  &kp U      &kp Y    &kp SEMI  &none
+&none  &kp A               &kp R  &kp S     &kp T  &kp G             &kp M       &kp N  &kp E      &kp I    &kp O     &none
+&none  &mt LEFT_CONTROL Z  &kp X  &kp C     &kp D  &kp V             &kp K       &kp H  &kp COMMA  &kp DOT  &kp FSLH  &none
+                                  &kp LGUI  &mo 1  &mt LSHFT CAPS    &space_ret  &mo 2  &kp LALT
             >;
         };
 
         lower_layer {
             bindings = <
-&bt BT_CLR    &none       &none     &kp UP    &none      &none     &none      &mt F7 N7  &mt F8 N8  &mt F9 N9  &none    &mt LC(LA(INS)) INS
-&bt BT_SEL 1  &kp LSHIFT  &kp LEFT  &kp DOWN  &kp RIGHT  &none     &kp LSHFT  &mt F4 N4  &mt F5 N5  &mt F6 N6  &none    &kp END
-&bt BT_SEL 0  &none       &none     &none     &none      &none     &kp N0     &mt F1 N1  &mt F2 N2  &mt F3 N3  &kp DOT  &none
-                                    &kp LGUI  &trans     &trans    &kp BSPC   &trans     &kp HOME
+&none  &none       &none         &kp UP        &none      &none     &none     &mt F7 N7  &mt F8 N8  &mt F9 N9  &none    &none
+&none  &kp LSHIFT  &kp LEFT      &kp DOWN      &kp RIGHT  &none     &none     &mt F4 N4  &mt F5 N5  &mt F6 N6  &kp END  &none
+&none  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &none      &none     &kp N0    &mt F1 N1  &mt F2 N2  &mt F3 N3  &kp DOT  &none
+                                 &kp LGUI      &trans     &trans    &kp BSPC  &trans     &kp HOME
             >;
         };
 
